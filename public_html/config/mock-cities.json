@@ -1,0 +1,12 @@
+{
+  "cities": [
+    {
+      "insee": "79281",
+      "cp": 79410,
+      "latitude": 46.3994,
+      "longitude": -0.48,
+      "altitude": 44,
+      "name": "Saint-Maxire"
+    }
+  ]
+}

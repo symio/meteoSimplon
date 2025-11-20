@@ -1,0 +1,5 @@
+{
+    "API_KEY": "<votre clé d'api meteo-concept ici>",
+    "ville": "Saint Maxire",
+    "code_insee": null
+}
