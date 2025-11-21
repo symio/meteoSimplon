@@ -32,19 +32,25 @@ Application d'affichage météo.
 
 1. Copiez le fichier de configuration exemple :
    ```bash
-   cp config/configuration.sample.json config/configuration.json
+   cp public_html/config/configuration.sample.json public_html/config/configuration.json
    ```
 
-2. Éditez `config/configuration.json` avec vos informations :
+2. Éditez `public_html/config/configuration.json` avec vos informations :
    ```json
    {
        "API_KEY": "votre_clé_api_meteo_concept_ici",
        "ville": "Saint-Maxire",
-       "code_insee": "79281"
+       "code_insee": "79281" // <-- optionnel vous pouvez laisser à null 
    }
    ```
 
 ### 3. Trouver le code INSEE de votre ville
+
+La saisie en configuration du code insee est optionnelle.
+
+L'application iras chercher le code de la première ville correspondant au nom en configuration.
+
+Pour plus de précisions (villes homonymes) :
 
 - Recherchez sur Google : `code insee [nom de votre ville]`
 - Ou consultez le site INSEE
@@ -54,7 +60,7 @@ Application d'affichage météo.
 1. Clonez le dépôt :
    ```bash
    git clone https://github.com/votre-username/meteoSimplon.git
-   cd meteoSimplon
+   cd meteoSimplon/public_html
    ```
 
 2. Suivez les étapes de configuration ci-dessus
@@ -78,7 +84,7 @@ Application d'affichage météo.
 ### Mode développement (mock)
 
 Pour économiser votre quota d'appels API pendant le développement, 
-éditez `scripts/meteofetch.js` :
+éditez `public_html/scripts/meteofetch.js` :
 
 ```javascript
 USE_MOCK: true,  // Utilise les données de mock-meteo.json
@@ -137,10 +143,10 @@ pour personnaliser les couleurs des icônes selon les conditions météo.
 2. **Graphiques** : Intégrer des graphiques de température avec Chart.js
 3. **Animations** : Ajouter des animations CSS pour les transitions météo
 4. **Multi-villes** : Gérer plusieurs villes dans la configuration
-5. **Accessibilité** : Améliorer les contrastes et ajouter des attributs ARIA
-6. **PWA** : Transformer en Progressive Web App pour le mode offline
-7. **Internationalisation** : Support multilingue
-8. **Alertes météo** : Afficher les alertes en cas de conditions extrêmes
+5. **Thèmes** : Gérer des thèmes permettant de changer le jeu de couleurs
+6. **Internationalisation** : Support multilingue
+7. **Alertes météo** : Afficher les alertes en cas de conditions extrêmes
+8. **Prévisions** : Afficher en animation de boucle les prévisions météo des jours suivants
 
 ## Auteur
 

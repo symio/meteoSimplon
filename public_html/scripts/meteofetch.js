@@ -117,7 +117,6 @@ let meteo = {
     },
     /**
      * Charge la météo
-     * 
      * @returns {Promise}
      */
     fetchMeteo: function () {
@@ -215,22 +214,11 @@ let meteo = {
      */
     getWeathertext: function (weatherCode) {
         const weatherIcons = {
-            0: "Ensoleillé",
-            1: "Peu nuageux",
-            2: "Ciel voilé",
-            3: "Nuageux",
-            4: "Très nuageux",
-            5: "Couvert",
-            6: "Brume",
-            7: "Brouillard",
-            10: "Pluie faible",
-            11: "Pluie modérée",
-            12: "Pluie forte",
-            13: "Pluie très forte",
-            14: "Averses",
-            15: "Orage",
-            16: "Neige faible",
-            17: "Neige modérée",
+            0: "Ensoleillé", 1: "Peu nuageux", 2: "Ciel voilé",
+            3: "Nuageux", 4: "Très nuageux", 5: "Couvert", 6: "Brume",
+            7: "Brouillard", 10: "Pluie faible", 11: "Pluie modérée",
+            12: "Pluie forte", 13: "Pluie très forte", 14: "Averses",
+            15: "Orage", 16: "Neige faible", 17: "Neige modérée",
             18: "Neige forte"
         };
 
@@ -265,10 +253,10 @@ let meteo = {
 
         // Ombre adaptée pour chaque couleur
         const weatherShadows = {
-            0: "3px 3px 6px rgba(0, 0, 0, 0.5)", // Ombre pour le soleil
+            0: "3px 3px 6px rgba(0, 0, 0, 0.5)",        // Ombre pour le soleil
             10: "3px 3px 6px rgba(255, 255, 255, 0.7)", // Ombre blanche pour la pluie
-            15: "3px 3px 6px rgba(0, 0, 0, 0.5)", // Ombre pour l'orage
-            16: "2px 2px 4px rgba(0, 0, 0, 0.5)"  // Ombre pour la neige
+            15: "3px 3px 6px rgba(0, 0, 0, 0.5)",       // Ombre pour l'orage
+            16: "2px 2px 4px rgba(0, 0, 0, 0.5)"        // Ombre pour la neige
         };
 
         return {
@@ -283,7 +271,7 @@ let meteo = {
      */
     setWeather: function (data) {
         const {weather, tmax, tmin} = data.forecast[0];
-        const {name, latitude, longitude, altitude, cp} = data.city;
+        const {name: cityName, latitude, longitude, altitude, cp} = data.city;
 
         const iconClass = this.getWeatherIconClass(weather);
         const {color: iconColor, shadow: iconShadow} = this.getWeatherIconColor(weather);
@@ -299,7 +287,7 @@ let meteo = {
         $iconElement.style.filter = `drop-shadow(${iconShadow})`;
         $temperatureElement.innerHTML = `${tmax}°C`;
         $weatherFeelElement.innerHTML = weatherText;
-        $localisationElement.querySelector(".city").innerHTML = name;
+        $localisationElement.querySelector(".city").innerHTML = cityName;
         $localisationElement.querySelector(".postal-code").innerHTML = cp;
         $footerElement.querySelector(".temperature-minimal p.temp").innerHTML = `${tmin}°C`;
         $footerElement.querySelector(".altitude p").innerHTML = `${altitude}M`;
@@ -307,6 +295,10 @@ let meteo = {
     }
 };
 
+/**
+ * Callback pour raffraichissement de l'affichage
+ * @returns {undefined}
+ */
 function fetchAndUpdate() {
     meteo.fetchMeteo()
             .then(data => {
