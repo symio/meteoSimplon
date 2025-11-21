@@ -50,7 +50,7 @@ La saisie en configuration du code insee est optionnelle.
 
 L'application iras chercher le code de la première ville correspondant au nom en configuration.
 
-Pour plus de précisions (villes homonymes) :
+Pour plus de précision dans la sélection d'une ville (villes homonymes) :
 
 - Recherchez sur Google : `code insee [nom de votre ville]`
 - Ou consultez le site INSEE
